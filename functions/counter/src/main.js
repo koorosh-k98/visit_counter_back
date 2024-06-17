@@ -1,5 +1,5 @@
-const functions = require('firebase-functions');
-const express = require('express');
+import { functions } from "firebase-functions";
+import { express } from "express";
 const app = express();
 
 app.get('/svg', (req, res) => {
