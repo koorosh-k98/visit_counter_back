@@ -69,7 +69,7 @@ export default async ({ req, res }) => {
     .where(usernameField, "==", username)
     .get();
 
-  console.log(snapshot.docs);
+  console.log(snapshot.docs.first.data());
 
   var count = 1;
   var label = "Profile Views";
