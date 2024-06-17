@@ -47,7 +47,7 @@ export default async ({ req, res }) => {
   }
 
   const snapshot = admin.firestore().collection(visitCounterCollection)
-    .where(usernameField, isEqualTo, username)
+    .where(usernameField, "==", username)
     .get();
 
   var count = 0;
