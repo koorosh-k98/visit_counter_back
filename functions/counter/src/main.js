@@ -56,6 +56,8 @@ export default async ({ req, res }) => {
     .where(usernameField, "==", username)
     .get();
 
+  console.log(snapshot.docs);
+
   var count = 1;
   var label = "Profile Views";
   var iconIndex = 1;
