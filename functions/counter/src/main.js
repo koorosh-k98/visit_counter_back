@@ -35,7 +35,7 @@ const colors = [
 export default async ({ req, res }) => {
   const username = req.query.username;
   if (username == null) {
-    return res.error("Username is null!");
+    return res.send("Username is null!");
   }
 
   const snapshot = admin.firestore().collection(visitCounterCollection)
