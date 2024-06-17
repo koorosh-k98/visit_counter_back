@@ -8,73 +8,73 @@ export default ({ req, res }) => {
     const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="147.6px" height="23px" fill="none">
 <foreignObject width="147.6px" height="23px">
 <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-.pill{
-    display: flex;
-    background-color: transparent;
-    width: max-content;
-    font-family: 'Open Sans', sans-serif;
-    border-radius: 4px;
-}
-.pillLabel{
-    display: flex;
-    width: max-content;
-    padding: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    font-size: 12px;
-    color: rgb(254 202 202);
-    background-color: rgb(127 29 29);
-}
-.pillIcon{
-  margin-right: 4px;
-  width: 14px;
-  height: 14px;
-}
-.pillCount{
-    color: rgb(127 29 29);
-    background-color: rgb(254 202 202);
-    width: max-content;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    padding: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
-    letter-spacing: 1px;
-    font-size: 12px;
-}
+// <style>
+// .pill{
+//     display: flex;
+//     background-color: transparent;
+//     width: max-content;
+//     font-family: 'Open Sans', sans-serif;
+//     border-radius: 4px;
+// }
+// .pillLabel{
+//     display: flex;
+//     width: max-content;
+//     padding: 4px;
+//     padding-left: 8px;
+//     padding-right: 8px;
+//     border-top-left-radius: 4px;
+//     border-bottom-left-radius: 4px;
+//     font-size: 12px;
+//     color: rgb(254 202 202);
+//     background-color: rgb(127 29 29);
+// }
+// .pillIcon{
+//   margin-right: 4px;
+//   width: 14px;
+//   height: 14px;
+// }
+// .pillCount{
+//     color: rgb(127 29 29);
+//     background-color: rgb(254 202 202);
+//     width: max-content;
+//     border-top-right-radius: 4px;
+//     border-bottom-right-radius: 4px;
+//     padding: 4px;
+//     padding-left: 8px;
+//     padding-right: 8px;
+//     letter-spacing: 1px;
+//     font-size: 12px;
+// }
 
-@keyframes heartbeat {
-  0% {
-      transform: scale(1);
-  }
-  25% {
-      transform: scale(1.1);
-  }
-  40% {
-      transform: scale(1);
-  }
-  60% {
-      transform: scale(1.1);
-  }
-  100% {
-      transform: scale(1);
-  }
-}
+// @keyframes heartbeat {
+//   0% {
+//       transform: scale(1);
+//   }
+//   25% {
+//       transform: scale(1.1);
+//   }
+//   40% {
+//       transform: scale(1);
+//   }
+//   60% {
+//       transform: scale(1.1);
+//   }
+//   100% {
+//       transform: scale(1);
+//   }
+// }
 
-.heartbeat {
-  display: inline-block;
-  animation: heartbeat 1.5s infinite;
-  transform-origin: center;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  backface-visibility: hidden;
-  will-change: transform;
-}
+// .heartbeat {
+//   display: inline-block;
+//   animation: heartbeat 1.5s infinite;
+//   transform-origin: center;
+//   image-rendering: -webkit-optimize-contrast;
+//   image-rendering: crisp-edges;
+//   backface-visibility: hidden;
+//   will-change: transform;
+// }
 
-</style>
+// </style>
 <div class="pill">
 <span class="pillLabel">
 <svg xmlns="http://www.w3.org/2000/svg" class="pillIcon heartbeat" fill="none" viewBox="0 0 24 24" stroke="currentColor">
