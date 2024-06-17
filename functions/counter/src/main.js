@@ -12,7 +12,9 @@ export default ({ req, res }) => {
 </svg>
 `;
 
-  res.setHeader('Content-Type', 'image/svg+xml');
-return res.send(svgContent);
+
+return res.send(svgContent, {
+                    "content-type": "image/svg+xml"
+            });
 
 };
