@@ -4,6 +4,9 @@ import { Client } from 'node-appwrite';
 import admin from "firebase-admin";
 import { initializeApp } from "firebase-admin/app";
 
+const visitCounterCollection = 'VisitCounter';
+const usernameField = "Username";
+
 
 initializeApp();
 
