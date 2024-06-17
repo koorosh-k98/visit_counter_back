@@ -13,7 +13,7 @@ export default ({ req, res }) => {
 `;
 
 
-return res.send(svgContent, {
+return res.send(svgContent, 200, {
                     "content-type": "image/svg+xml"
             });
 
