@@ -37,34 +37,123 @@ const colors = [
 
 
 
-
-
-export default async ({ req, res, log, error }) => {
-  // Why not try the Appwrite SDK?
-  //
-  // const client = new Client()
-  //    .setEndpoint('https://cloud.appwrite.io/v1')
-  //    .setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
-  //    .setKey(process.env.APPWRITE_API_KEY);
-
-  // You can log messages to the console
-  log('Hello, Logs!');
-
-  // If something goes wrong, log an error
-  error('Hello, Errors!');
-
-  // The `req` object contains the request data
-  if (req.method === 'GET') {
-    // Send a response with the res object helpers
-    // `res.send()` dispatches a string back to the client
-    return res.send('Hello, World!');
+export default async ({ req, res }) => {
+  const username = req.query.username;
+  if (username == null) {
+    return res.send("Username is null!");
   }
 
-  // `res.json()` is a handy helper for sending JSON
-  return res.json({
-    motto: 'Build like a team of hundreds_',
-    learn: 'https://appwrite.io/docs',
-    connect: 'https://appwrite.io/discord',
-    getInspired: 'https://builtwith.appwrite.io',
+  const snapshot = admin.firestore().collection(visitCounterCollection)
+    .where(usernameField, isEqualTo, username)
+    .get();
+
+  var count = 0;
+  var label = "Profile Views";
+  var iconIndex = 0;
+  var colorIndex = 0;
+  if (snapshot.docs.isNotEmpty) {
+    const data = snapshot.docs.first.data();
+    count = data["Count"];
+    label = data["Label"];
+    iconIndex = (data["IconIndex"] != null && data["IconIndex"] < icons.length) ? data["IconIndex"] : randomInteger(0, icons.length);
+    colorIndex = (data["ColorIndex"] != null && data["ColorIndex"] < colors.length) ? data["ColorIndex"] : randomInteger(0, colors.length);
+
+    await snapshot.docs.first.reference
+      .set({ "Count": ++count })
+      .timeout(2000);
+  }
+
+  console.log(count);
+  console.log(label);
+  console.log(iconIndex);
+  console.log(colorIndex);
+
+  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="147.6px" height="23px" fill="none">
+<foreignObject width="147.6px" height="23px">
+<div xmlns="http://www.w3.org/1999/xhtml">
+<style>
+.pill{
+    display: flex;
+    background-color: transparent;
+    width: max-content;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 4px;
+}
+.pillLabel{
+    display: flex;
+    width: max-content;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    font-size: 12px;
+    color: rgb(254 202 202);
+    background-color: ${colors[colorIndex]};
+}
+.pillIcon{
+  margin-right: 4px;
+  width: 14px;
+  height: 14px;
+}
+.pillCount{
+    color: ${colors[colorIndex]};
+    background-color: rgb(254 202 202);
+    width: max-content;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+@keyframes heartbeat {
+  0% {
+      transform: scale(1);
+  }
+  25% {
+      transform: scale(1.1);
+  }
+  40% {
+      transform: scale(1);
+  }
+  60% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.heartbeat {
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+  transform-origin: center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+</style>
+<div class="pill">
+<span class="pillLabel">
+<svg xmlns="http://www.w3.org/2000/svg" class="pillIcon heartbeat" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  ${icons[iconIndex]}
+</svg>
+${label}</span>
+<span class="pillCount"> ${count} </span>
+</div>
+</div>
+</foreignObject>
+</svg>
+`;
+
+
+  return res.send(svgContent, 200, {
+    "content-type": "image/svg+xml"
   });
+
 };
