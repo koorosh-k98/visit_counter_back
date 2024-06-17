@@ -1,7 +1,7 @@
 import { Client } from 'node-appwrite';
 
 
-const admin = require('firebase-admin');
+import admin from "firebase-admin";
 import { initializeApp } from "firebase-admin/app";
 
 
