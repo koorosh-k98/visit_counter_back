@@ -2,9 +2,10 @@ import { Client } from 'node-appwrite';
 
 
 import * as admin from "firebase-admin";
+import initializeApp from "firebase-admin/app";
 
 
-admin.initializeApp();
+initializeApp();
 
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
