@@ -63,6 +63,8 @@ export default async ({ req, res }) => {
     return res.send("Username is null!");
   }
 
+  console.log("username: "+username);
+
   const snapshot = admin.firestore().collection(visitCounterCollection)
     .where(usernameField, "==", username)
     .get();
