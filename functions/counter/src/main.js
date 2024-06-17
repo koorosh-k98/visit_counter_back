@@ -66,10 +66,10 @@ export default async ({ req, res }) => {
       .timeout(2000);
   }
 
-  context.log(count);
-  context.log(label);
-  context.log(iconIndex);
-  context.log(colorIndex);
+  console.log(count);
+  console.log(label);
+  console.log(iconIndex);
+  console.log(colorIndex);
 
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="147.6px" height="23px" fill="none">
 <foreignObject width="147.6px" height="23px">
