@@ -54,7 +54,7 @@ export default async ({ req, res }) => {
   var label = "Profile Views";
   var iconIndex = 0;
   var colorIndex = 0;
-  if (snapshot.docs.isNotEmpty) {
+  if (snapshot != null && snapshot.docs != null && snapshot.docs.length > 0) {
     const data = snapshot.docs.first.data();
     count = data["Count"];
     label = data["Label"];
