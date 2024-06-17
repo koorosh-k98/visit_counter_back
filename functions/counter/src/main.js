@@ -1,33 +1,20 @@
-import { Client } from 'node-appwrite';
+const functions = require('firebase-functions');
+const express = require('express');
+const app = express();
 
-// This is your Appwrite function
-// It's executed each time we get a request
-export default async ({ req, res, log, error }) => {
-  // Why not try the Appwrite SDK?
-  //
-  // const client = new Client()
-  //    .setEndpoint('https://cloud.appwrite.io/v1')
-  //    .setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
-  //    .setKey(process.env.APPWRITE_API_KEY);
+app.get('/svg', (req, res) => {
+  const counter = req.query.counter || '0';
+  const color = req.query.color || '#000000';
 
-  // You can log messages to the console
-  log('Hello, Logs!');
+  const svgContent = `
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="${color}"/>
+  <text x="100" y="100" font-size="40" text-anchor="middle" fill="#ffffff">${counter}</text>
+</svg>
+`;
 
-  // If something goes wrong, log an error
-  error('Hello, Errors!');
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.send(svgContent);
+});
 
-  // The `req` object contains the request data
-  if (req.method === 'GET') {
-    // Send a response with the res object helpers
-    // `res.send()` dispatches a string back to the client
-    return res.send('Hello, World!');
-  }
-
-  // `res.json()` is a handy helper for sending JSON
-  return res.json({
-    motto: 'Build like a team of hundreds_',
-    learn: 'https://appwrite.io/docs',
-    connect: 'https://appwrite.io/discord',
-    getInspired: 'https://builtwith.appwrite.io',
-  });
-};
+exports.svg = functions.https.onRequest(app);
