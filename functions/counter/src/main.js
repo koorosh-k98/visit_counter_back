@@ -1,7 +1,7 @@
 import { Client } from 'node-appwrite';
 
 
-export default async ({ req, res, log, error }) => {
+export default ({ req, res }) => {
     const counter = req.query.counter || '0';
   const color = req.query.color || '#000000';
   
