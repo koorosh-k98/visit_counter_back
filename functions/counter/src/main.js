@@ -34,7 +34,7 @@ const colors = [
 
 export default async ({ req, res }) => {
   const username = req.query.username;
-  if(username == null){
+  if (username == null) {
     return res.error("Username is null!");
   }
 
@@ -57,6 +57,11 @@ export default async ({ req, res }) => {
       .set({ "Count": ++count })
       .timeout(2000);
   }
+
+  console.log(count);
+  console.log(label);
+  console.log(iconIndex);
+  console.log(colorIndex);
 
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="147.6px" height="23px" fill="none">
 <foreignObject width="147.6px" height="23px">
