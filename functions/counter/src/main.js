@@ -8,7 +8,13 @@ const visitCounterCollection = 'VisitCounter';
 const usernameField = "Username";
 
 const apiKey = process.env.API_KEY;
-initializeApp({ apiKey: apiKey });
+const projectId = process.env.PROJECT_ID;
+const appId = process.env.APP_ID;
+
+initializeApp({ apiKey: apiKey, projectId: projectId, appId: appId });
+console.log(apiKey);
+console.log(projectId);
+console.log(appId);
 
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
