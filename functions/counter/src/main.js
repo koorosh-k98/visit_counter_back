@@ -7,8 +7,8 @@ import { initializeApp } from "firebase-admin/app";
 const visitCounterCollection = 'VisitCounter';
 const usernameField = "Username";
 
-
-initializeApp();
+const apiKey = process.env.API_KEY;
+initializeApp({ apiKey: apiKey });
 
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
