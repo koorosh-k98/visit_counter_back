@@ -25,7 +25,6 @@ const configs = {
   
 
 initializeApp({credential: admin.credential.cert( configs )});
-console.log(configs);
 
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -63,13 +62,12 @@ export default async ({ req, res }) => {
     return res.send("Username is null!");
   }
 
-  console.log("username: "+username);
 
   const snapshot = await admin.firestore().collection(visitCounterCollection)
     .where(usernameField, "==", username)
     .get();
 
-  console.log(snapshot.docs);
+
 
   var count = 1;
   var label = "Profile Views";
@@ -79,15 +77,15 @@ export default async ({ req, res }) => {
     snapshot.forEach(doc => {
       console.log(doc.id, '=>', doc.data());
     });
-    // const data = snapshot.docs.first.data();
-    // count = data["Count"];
-    // label = data["Label"];
-    // iconIndex = (data["IconIndex"] != null && data["IconIndex"] < icons.length) ? data["IconIndex"] : randomInteger(0, icons.length);
-    // colorIndex = (data["ColorIndex"] != null && data["ColorIndex"] < colors.length) ? data["ColorIndex"] : randomInteger(0, colors.length);
+    const data = snapshot.first.data();
+    count = data["Count"];
+    label = data["Label"];
+    iconIndex = (data["IconIndex"] != null && data["IconIndex"] < icons.length) ? data["IconIndex"] : randomInteger(0, icons.length);
+    colorIndex = (data["ColorIndex"] != null && data["ColorIndex"] < colors.length) ? data["ColorIndex"] : randomInteger(0, colors.length);
 
-    // await snapshot.docs.first.reference
-    //   .set({ "Count": ++count })
-    //   .timeout(2000);
+    await snapshot.first.reference
+      .set({ "Count": ++count })
+      .timeout(2000);
   }
 
   console.log(count);
