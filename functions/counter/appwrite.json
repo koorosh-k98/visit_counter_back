@@ -1,0 +1,12 @@
+{
+    "entrypoint": "api",
+    "runtime": "node-18.0",
+    "entrypoints": [
+      {
+        "name": "api",
+        "execute": "main.js",
+        "timeout": 20
+      }
+    ]
+  }
+  
