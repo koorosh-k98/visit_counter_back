@@ -86,8 +86,8 @@ export default async ({ req, res }) => {
     });
   }
 
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="310px" height="35px" fill="none">
-<foreignObject width="305px" height="35px">
+  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="320px" height="35px" fill="none">
+<foreignObject width="315px" height="35px">
 <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
 .pill{
