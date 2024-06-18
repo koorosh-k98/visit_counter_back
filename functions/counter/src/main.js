@@ -65,11 +65,11 @@ export default async ({ req, res }) => {
 
   console.log("username: "+username);
 
-  const snapshot = admin.firestore().collection(visitCounterCollection)
+  const snapshot = await admin.firestore().collection(visitCounterCollection)
     .where(usernameField, "==", username)
     .get();
 
-  console.log(snapshot.docs.first.data());
+  console.log(snapshot.docs);
 
   var count = 1;
   var label = "Profile Views";
