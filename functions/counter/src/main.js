@@ -172,7 +172,10 @@ ${label} ${uniqueParam}</span>
 
 
   return res.send(svgContent, 200, {
-    "content-type": "image/svg+xml"
+    "content-type": "image/svg+xml",
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0',
   });
 
 };
