@@ -86,8 +86,8 @@ export default async ({ req, res }) => {
     });
   }
 
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="310px" height="40px" fill="none">
-<foreignObject width="305px" height="40px">
+  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="310px" height="35px" fill="none">
+<foreignObject width="305px" height="35px">
 <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
 .pill{
@@ -100,7 +100,8 @@ export default async ({ req, res }) => {
 .pillLabel{
     display: flex;
     width: max-content;
-    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 8px;
     padding-right: 8px;
     border-top-left-radius: 20px;
@@ -108,6 +109,8 @@ export default async ({ req, res }) => {
     font-size: 14px;
     color: rgb(49 46 129);
     background-color: ${colors[colorIndex]};
+    text-align: center;
+    line-height: 20px;
 }
 .pillIcon{
   margin-right: 4px;
@@ -120,11 +123,15 @@ export default async ({ req, res }) => {
     width: max-content;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 8px;
     padding-right: 8px;
+    alignment: center;
     letter-spacing: 1px;
-    font-size: 14px;
+    font-size: 14px; 
+    text-align: center;
+    line-height: 20px;
 }
 
 @keyframes heartbeat {
