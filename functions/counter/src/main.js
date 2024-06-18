@@ -69,14 +69,12 @@ export default async ({ req, res }) => {
 
 
 
-  var count = 1;
+  var count = 0;
   var label = "Profile Views";
-  var iconIndex = 1;
-  var colorIndex = 1;
+  var iconIndex = 0;
+  var colorIndex = 0;
   if (snapshot != null && snapshot.docs != null && snapshot.docs.length > 0) {
-    snapshot.forEach(async doc => {
-      console.log(doc.id, '=>', doc.data());
-    
+    snapshot.forEach(async doc => {    
     const data = doc.data()
     count = data["Count"];
     label = data["Label"];
@@ -88,11 +86,6 @@ export default async ({ req, res }) => {
       .timeout(2000);
     });
   }
-
-  console.log(count);
-  console.log(label);
-  console.log(iconIndex);
-  console.log(colorIndex);
 
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="147.6px" height="23px" fill="none">
 <foreignObject width="147.6px" height="23px">
@@ -114,8 +107,8 @@ export default async ({ req, res }) => {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     font-size: 12px;
-    color: rgb(254 202 202);
-    background-color: ${colors[colorIndex]};
+    color: ${colors[colorIndex]};
+    background-color: rgb(49 46 129);
 }
 .pillIcon{
   margin-right: 4px;
@@ -123,8 +116,8 @@ export default async ({ req, res }) => {
   height: 14px;
 }
 .pillCount{
-    color: ${colors[colorIndex]};
-    background-color: rgb(254 202 202);
+    color: rgb(49 46 129);
+    background-color: ${colors[colorIndex]};
     width: max-content;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
