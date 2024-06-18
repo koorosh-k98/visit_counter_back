@@ -76,6 +76,9 @@ export default async ({ req, res }) => {
   var iconIndex = 1;
   var colorIndex = 1;
   if (snapshot != null && snapshot.docs != null && snapshot.docs.length > 0) {
+    snapshot.forEach(doc => {
+      console.log(doc.id, '=>', doc.data());
+    });
     const data = snapshot.docs.first.data();
     count = data["Count"];
     label = data["Label"];
