@@ -74,18 +74,19 @@ export default async ({ req, res }) => {
   var iconIndex = 1;
   var colorIndex = 1;
   if (snapshot != null && snapshot.docs != null && snapshot.docs.length > 0) {
-    snapshot.forEach(doc => {
+    snapshot.forEach(async doc => {
       console.log(doc.id, '=>', doc.data());
-    });
-    const data = snapshot.data();
+    
+    const data = doc.data()
     count = data["Count"];
     label = data["Label"];
     iconIndex = (data["IconIndex"] != null && data["IconIndex"] < icons.length) ? data["IconIndex"] : randomInteger(0, icons.length);
     colorIndex = (data["ColorIndex"] != null && data["ColorIndex"] < colors.length) ? data["ColorIndex"] : randomInteger(0, colors.length);
 
-    await snapshot.reference
+    await doc.reference
       .set({ "Count": ++count })
       .timeout(2000);
+    });
   }
 
   console.log(count);
