@@ -77,13 +77,13 @@ export default async ({ req, res }) => {
     snapshot.forEach(doc => {
       console.log(doc.id, '=>', doc.data());
     });
-    const data = snapshot.first.data();
+    const data = snapshot.data();
     count = data["Count"];
     label = data["Label"];
     iconIndex = (data["IconIndex"] != null && data["IconIndex"] < icons.length) ? data["IconIndex"] : randomInteger(0, icons.length);
     colorIndex = (data["ColorIndex"] != null && data["ColorIndex"] < colors.length) ? data["ColorIndex"] : randomInteger(0, colors.length);
 
-    await snapshot.first.reference
+    await snapshot.reference
       .set({ "Count": ++count })
       .timeout(2000);
   }
