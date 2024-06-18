@@ -86,8 +86,8 @@ export default async ({ req, res }) => {
     });
   }
 
-  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="147.6px" height="23px" fill="none">
-<foreignObject width="147.6px" height="23px">
+  const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="310px" height="40px" fill="none">
+<foreignObject width="305px" height="40px">
 <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
 .pill{
@@ -95,36 +95,36 @@ export default async ({ req, res }) => {
     background-color: transparent;
     width: max-content;
     font-family: 'Open Sans', sans-serif;
-    border-radius: 4px;
+    border-radius: 20px;
 }
 .pillLabel{
     display: flex;
     width: max-content;
-    padding: 4px;
+    padding: 10px;
     padding-left: 8px;
     padding-right: 8px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    font-size: 12px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 14px;
     color: rgb(49 46 129);
     background-color: ${colors[colorIndex]};
 }
 .pillIcon{
   margin-right: 4px;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
 }
 .pillCount{
     color: rgb(49 46 129);
     background-color: rgb(199 210 254);
     width: max-content;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    padding: 4px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px;
     padding-left: 8px;
     padding-right: 8px;
     letter-spacing: 1px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 @keyframes heartbeat {
