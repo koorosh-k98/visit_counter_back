@@ -108,8 +108,8 @@ export default async ({ req, res }) => {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     font-size: 12px;
-    color: ${colors[colorIndex]};
-    background-color: rgb(49 46 129);
+    color: rgb(49 46 129);
+    background-color: ${colors[colorIndex]};
 }
 .pillIcon{
   margin-right: 4px;
@@ -118,7 +118,7 @@ export default async ({ req, res }) => {
 }
 .pillCount{
     color: rgb(49 46 129);
-    background-color: ${colors[colorIndex]};
+    background-color: rgb(199 210 254);
     width: max-content;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
