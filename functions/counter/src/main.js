@@ -85,9 +85,9 @@ export default async ({ req, res }) => {
     // iconIndex = (data["IconIndex"] != null && data["IconIndex"] < icons.length) ? data["IconIndex"] : randomInteger(0, icons.length);
     // colorIndex = (data["ColorIndex"] != null && data["ColorIndex"] < colors.length) ? data["ColorIndex"] : randomInteger(0, colors.length);
 
-    await snapshot.docs.first.reference
-      .set({ "Count": ++count })
-      .timeout(2000);
+    // await snapshot.docs.first.reference
+    //   .set({ "Count": ++count })
+    //   .timeout(2000);
   }
 
   console.log(count);
