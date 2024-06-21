@@ -46,11 +46,11 @@ const icons = [
 ];
 
 const backgroundColors = [
-  "#F44336FF",
-  "#4CAF50FF",
-  "#2196F3FF",
-  "#E91E63FF",
-  "#FFC107FF"
+  "#E80000",
+  "#12B700",
+  "#0015B5",
+  "#FF00C7",
+  "#FFCC00"
 ];
 
 const colors = [
