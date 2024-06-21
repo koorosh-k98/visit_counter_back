@@ -38,7 +38,7 @@ const backgroundColors = [
   "#12B700",
   "#0015B5",
   "#FF00C7",
-  "#E08E02"
+  "#D68400"
 ];
 
 const colors = [
