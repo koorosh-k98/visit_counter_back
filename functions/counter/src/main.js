@@ -87,9 +87,8 @@ export default async ({ req, res }) => {
       iconIndex = (data["IconsIndex"] != null && data["IconsIndex"] < icons.length) ? data["IconsIndex"] : randomInteger(0, icons.length - 1);
       colorIndex = (data["ColorsIndex"] != null && data["ColorsIndex"] < colors.length) ? data["ColorsIndex"] : randomInteger(0, colors.length - 1);
 
-      await doc.ref
-        .update({ "Count": ++count })
-        .timeout(2000);
+      doc.ref
+        .update({ "Count": ++count });
     });
   }
 
